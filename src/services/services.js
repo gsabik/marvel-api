@@ -4,7 +4,7 @@ const API_KEY = "a67a55accbb41ce1ec96e671b13d8feb";
 const HASH = "f48adcc705631d9dc751b93cee30cde6";
 
 export const requestComics = async() => {
-    const response = await fetch(`${BASE_URL}/v1/public/comics?format=comic&formatType=comic&orderBy=focDate&ts=${TS}&apikey=${API_KEY}&hash=${HASH}`);
+    const response = await fetch(`${BASE_URL}/v1/public/comics?limit=100&format=comic&formatType=comic&orderBy=focDate&ts=${TS}&apikey=${API_KEY}&hash=${HASH}`);
     const data = await response.json();
     const dataResults = data.data.results;
 
