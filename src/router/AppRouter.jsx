@@ -1,12 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import ComicDetail from "../pages/ComicDetail";
+import Comic from "../pages/Comic";
+import Favorites from "../pages/Favorites";
 
 const AppRouter = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<Home/>}/>
-			<Route path="/comic/:id" element={<ComicDetail/>}/>
+			<Route path="/comic/:id" element={<Comic/>}/>
+			<Route path="/favorites" element={<Favorites/>}/>
 		</Routes>
 	);
 }
