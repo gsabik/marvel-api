@@ -17,8 +17,6 @@ const Home = () => {
 		setLoading(false);
 	}
 	
-	console.log(search)
-
 	const loadMore = () => {
 		setLimit(limit + 20);
 	}
@@ -41,7 +39,7 @@ const Home = () => {
 			</div>
 			<div className="flex flex-col max-w-screen-xl mx-auto">
 				<Input setSearch={setSearch}/>
-				<div className="grid grid-cols-5 gap-4 p-8 z-20">
+				<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-8">
 					{
 						comics.slice(0, limit).map(comic => (
 							<Card

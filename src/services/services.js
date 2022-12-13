@@ -24,7 +24,10 @@ export const requestComicById = async(id) => {
 	const data = await response.json();
 	const dataResults = data.data.results;
 
+	console.log(data.data.results)
+
 	const comicDetail = dataResults.map(comic => ({
+		id,
 		title: comic.title,
 		img: `${comic.images[0].path}.jpg`,
 		description: comic.textObjects[0]?.text,
@@ -42,7 +45,7 @@ export const requestRecommended = async(title) => {
 	const data = await response.json();
 	const dataResults = data.data.results;
 
-	const comicsByTitle = dataResults.slice(0, 3).map(comic => ({
+	const comicsByTitle = dataResults.slice(0, 5).map(comic => ({
 		id: comic.id,
 		title: comic.title, 
 		img:`${comic.images[0].path}.jpg`,

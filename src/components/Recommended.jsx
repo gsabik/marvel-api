@@ -21,7 +21,7 @@ const Recommended = ({ title, id }) => {
 	return (
 		<div className="flex flex-col text-black max-w-screen-xl mx-auto my-4 p-4">
 			<h3 className="font-semibold p-10 text-2xl">Recommended</h3>
-			<div className="grid grid-cols-3 gap-4 px-10">
+			<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-8">
 				{
 					recommended.map(comic => (
 						<Card

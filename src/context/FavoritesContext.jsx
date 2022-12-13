@@ -9,21 +9,25 @@ export const FavoritesContext = createContext([]);
 export const FavoritesProvider = ({ children }) => {
 	const [favorites, setFavorites] = useState([]);
 
-	const addFavorite = (favorite) => {
-		setFavorites([...favorites, favorite]);
+	const addFavorite = (comic) => {
+		setFavorites([...favorites, comic]);
+	}
+
+	const isInFavorites = (id) => {
+		return favorites.some(comic =>  comic.id === id);
 	}
 
 	const deleteFavorite = (id) => {
-		return setFavorites(favorites.filter(favorite => favorite.id !== id));
+		return setFavorites(favorites.filter(comic => comic.id !== id));
 	}
 
 	return (
 		<FavoritesContext.Provider value={{
 			favorites, 
-			addToFavorites: addFavorite,
+			addFavorite,
+			isInFavorites,
 			deleteFavorite
-		}}>
-			{children}
+		}}>{children}
 		</FavoritesContext.Provider>
 	);
 }

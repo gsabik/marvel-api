@@ -1,7 +1,27 @@
-const Details = ({ title, description, purchase, img, creator, printPrice, digitalPrice }) => {
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
 
+const Details = ({ id, title, description, purchase, img, creator, printPrice, digitalPrice }) => {
+	const { addFavorite, isInFavorites } = useContext(FavoritesContext);
+
+	const handleAddToFavorites = () => {
+		if (!isInFavorites(id)) {
+			const addComic = {
+				id,
+				img, 
+				title
+			}
+			addFavorite(addComic);
+		}
+	}
+	
 	return (
-		<div className="bg-gray-800">
+		<div style={{
+			backgroundImage: `url(${img})`,
+			backgroundAttachment: "contain",
+			backgroundPosition: "fixed",
+			boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, .7	)"
+		}}>
 			<div className="flex justify-center w-full">
 				<div className="flex flex-row h-full max-w-screen-xl mx-auto p-10 w-full">
 					<div className="align-middle flex h-3/4 w-2/5">
@@ -24,6 +44,7 @@ const Details = ({ title, description, purchase, img, creator, printPrice, digit
 							</p>
 						</div>
 						<a href={purchase}>{purchase}</a>
+						<button className="bg-red-600 m-4 px-4 py-2 text-white hover:bg-red-700 w-fit" onClick={handleAddToFavorites}>Add to favorites</button>
 					</div>
 				</div>
 			</div>
