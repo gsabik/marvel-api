@@ -1,11 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
+import { FavoritesProvider } from "./context/FavoritesContext";
 import AppRouter from "./router/AppRouter";
 
 const MarvelApp = () => {
 	return (
-		<BrowserRouter>
-			<AppRouter/>
-		</BrowserRouter>
+		<FavoritesProvider>
+			<BrowserRouter>
+				<AppRouter/>
+			</BrowserRouter>
+		</FavoritesProvider>
 	);
 }
 
